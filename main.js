@@ -7,7 +7,12 @@ function clickHandler()
     var currentPrice=Number(profitLossInput[2].value);
     var initialPrice=Number(profitLossInput[0].value);
     var stockquantity=Number(profitLossInput[1].value);
-    if(currentPrice>initialPrice)
+    if(currentPrice<=0 || initialPrice<=0 || stockquantity<=0)
+    {
+        output.style.display="block";
+        output.innerText="All the quantities in the input should be greater than zero";
+    }
+    else if(currentPrice>initialPrice)
     {
         var profit=(currentPrice-initialPrice) * stockquantity;
         var profitpercentage=(profit/initialPrice) *100;
